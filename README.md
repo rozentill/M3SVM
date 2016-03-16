@@ -11,4 +11,4 @@ The basis of the package is libsvm:https://www.csie.ntu.edu.tw/~cjlin/libsvm/
 5.Train the data: `m=m3_train(y_train,x_train,option)`.
 In this code, m represents the model and options are mentioned in the source code.
 <br/>
-6.Test the data: `m3_test(y_test,x_test)`  
+6.Predict the data: `m3_test(y_test,x_test,model)`  
