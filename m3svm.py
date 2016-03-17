@@ -76,7 +76,7 @@ class m3(object):
                         tmpx = self.subx[i][k]+self.subx[j][l]
                         tmpm = svm_train(tmpy,tmpx,option)
                         self.classifiers[i][j][k].append(tmpm)
-                        print i,',',j,',',k,',',l,',',self.N,'\n'
+
 
         return self
 
@@ -104,6 +104,8 @@ class m3(object):
                                 p_val_0.append([])
                                 p_label, p_acc, p_val_0[l] = svm_predict(singley, singlex, self.classifiers[i][j][k][l])
 
+                                p_val_0[l]=p_val_0[l][0]
+                                p_val_0[l]=p_val_0[l][0]
                             p_val_1.append(reduce(min,p_val_0))# min Mij (j)
 
                         p_val_2.append(reduce(max,p_val_1))#max Mij (i)
@@ -120,12 +122,11 @@ class m3(object):
                             for l in range(0,self.N[i]):
                                 p_val_0.append([])
                                 p_label, p_acc, p_val_0[l] = svm_predict(singley, singlex, self.classifiers[r][i][k][l])
-
+                                p_val_0[l]=p_val_0[l][0]
+                                p_val_0[l]=p_val_0[l][0]
                             p_val_1.append(reduce(min,p_val_0))# min Mri (i)
 
                         p_val_2.append(reduce(max,p_val_1))#max Mri (r)
-
-
 
                     p_val_right = reduce(min,map(inv,p_val_2))#min Mij bar
 
